@@ -763,7 +763,11 @@ read_Xresources(void) {
 			colors[SchemeSel][ColBg] = strdup(xval.addr);
 		if (XrmGetResource(xdb, "dmenu.color7", "*", &type, &xval) == True)  /* normal foreground color */
 			colors[SchemeNorm][ColFg] = strdup(xval.addr);
-		if (XrmGetResource(xdb, "dmenu.color6", "*", &type, &xval) == True)  /* selected background color */
+		if (XrmGetResource(xdb, "dmenu.color0", "*", &type, &xval) == True)  /* normal highlight background color */
+			colors[SchemeNormHighlight][ColBg] = strdup(xval.addr);
+		if (XrmGetResource(xdb, "dmenu.color1", "*", &type, &xval) == True)  /* selected highlight background color */
+			colors[SchemeSelHighlight][ColBg] = strdup(xval.addr);
+		if (XrmGetResource(xdb, "dmenu.color1", "*", &type, &xval) == True)  /* selected background color */
 			colors[SchemeSel][ColBg] = strdup(xval.addr);
 		if (XrmGetResource(xdb, "dmenu.color0", "*", &type, &xval) == True)  /* selected foreground color */
 			colors[SchemeSel][ColFg] = strdup(xval.addr);
